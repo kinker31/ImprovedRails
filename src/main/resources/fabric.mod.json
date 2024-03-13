@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "improvedrails",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "Improved Rails",
+  "description": "New rails, a new alloy, and potentially some other stuff.",
   "authors": [
-    "Turnip Labs"
+    "kinker31"
   ],
   "contact": {
     "homepage": "",
@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+			"kinker31.ImprovedRails.ImprovedRailsMain"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"kinker31.ImprovedRails.ImprovedRailsMain"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"kinker31.ImprovedRails.ImprovedRailsMain"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"kinker31.ImprovedRails.ImprovedRailsMain"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+    "ImprovedRails.mixins.json"
   ],
 
   "depends": {
