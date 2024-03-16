@@ -5,15 +5,16 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemArmor;
 import net.minecraft.core.item.material.ArmorMaterial;
 import net.minecraft.core.item.material.ToolMaterial;
+import net.minecraft.core.item.tool.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.helper.ArmorHelper;
 import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.ItemHelper;
 import turniplabs.halplibe.helper.RecipeBuilder;
-import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderBlastFurnace;
 import turniplabs.halplibe.util.ConfigHandler;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
@@ -69,6 +70,24 @@ public class ImprovedRailsMain implements ModInitializer, GameStartEntrypoint, R
 		.createItem(MOD_ID, new Item("raw.olivinealloy", itemID++), "raw_olivine_alloy.png");
 	public static Item ingotOlivineAlloy = ItemHelper
 		.createItem(MOD_ID, new Item("ingot.olivinealloy", itemID++), "olivine_alloy.png");
+	public static Item olivineAlloySword = ItemHelper
+		.createItem(MOD_ID, new ItemToolSword("sword.olivinealloy", itemID++, olivineAlloyTool), "olivinealloysword.png");
+	public static Item olivineAlloyPickaxe = ItemHelper
+		.createItem(MOD_ID, new ItemToolPickaxe("pickaxe.olivinealloy", itemID++, olivineAlloyTool), "olivinealloypickaxe.png");
+	public static Item olivineAlloyShovel = ItemHelper
+		.createItem(MOD_ID, new ItemToolShovel("shovel.olivinealloy", itemID++, olivineAlloyTool), "olivinealloyshovel.png");
+	public static Item olivineAlloyAxe = ItemHelper
+		.createItem(MOD_ID, new ItemToolAxe("axe.olivinealloy", itemID++, olivineAlloyTool), "olivinealloyaxe.png");
+	public static Item olivineAlloyHoe = ItemHelper
+		.createItem(MOD_ID, new ItemToolHoe("hoe.olivinealloy", itemID++, olivineAlloyTool), "olivinealloyhoe.png");
+	public static Item olivineAlloyHelmet = ItemHelper
+		.createItem(MOD_ID, new ItemArmor("helmet.olivinealloy", itemID++, olivineAlloyArmor, 0), "olivinealloyhelmet.png");
+	public static Item olivineAlloyChestplate = ItemHelper
+		.createItem(MOD_ID, new ItemArmor("chestplate.olivinealloy", itemID++, olivineAlloyArmor, 1), "olivinealloychestplate.png");
+	public static Item olivineAlloyLeggings = ItemHelper
+		.createItem(MOD_ID, new ItemArmor("leggings.olivinealloy", itemID++, olivineAlloyArmor, 2), "olivinealloyleggings.png");
+	public static Item olivineAlloyBoots = ItemHelper
+		.createItem(MOD_ID, new ItemArmor("boots.olivinealloyboots", itemID++, olivineAlloyArmor, 3), "olivinealloyboots.png");
     @Override
     public void onInitialize() {
 		LOGGER.info("Improved Rails are a go!");
@@ -111,5 +130,74 @@ public class ImprovedRailsMain implements ModInitializer, GameStartEntrypoint, R
 				"OOO")
 			.addInput('O', ingotOlivineAlloy)
 			.create("block_of_olivine_alloy", olivineAlloyBlock.getDefaultStack());
+
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"O",
+				"O",
+				"S")
+			.addInput('O', ingotOlivineAlloy)
+			.addInput('S', Item.stick)
+			.create("olivine_alloy_sword", olivineAlloySword.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"OOO",
+				" S ",
+				" S ")
+			.addInput('O', ingotOlivineAlloy)
+			.addInput('S', Item.stick)
+			.create("olivine_alloy_pickaxe", olivineAlloyPickaxe.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"O",
+				"S",
+				"S")
+			.addInput('O', ingotOlivineAlloy)
+			.addInput('S', Item.stick)
+			.create("olivine_alloy_shovel", olivineAlloyShovel.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"OO",
+				"OS",
+				" S")
+			.addInput('O', ingotOlivineAlloy)
+			.addInput('S', Item.stick)
+			.create("olivine_alloy_axe", olivineAlloyAxe.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"OO",
+				" S",
+				" S")
+			.addInput('O', ingotOlivineAlloy)
+			.addInput('S', Item.stick)
+			.create("olivine_alloy_hoe", olivineAlloyHoe.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"OOO",
+				"O O",
+				"   ")
+			.addInput('O', ingotOlivineAlloy)
+			.create("olivine_alloy_helmet", olivineAlloyHelmet.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"O O",
+				"OOO",
+				"OOO")
+			.addInput('O', ingotOlivineAlloy)
+			.create("olivine_alloy_chestplate", olivineAlloyChestplate.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"OOO",
+				"O O",
+				"O O")
+			.addInput('O', ingotOlivineAlloy)
+			.create("olivine_alloy_leggings", olivineAlloyLeggings.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(
+				"O O",
+				"O O",
+				"   ")
+			.addInput('O', ingotOlivineAlloy)
+			.create("olivine_alloy_boots", olivineAlloyBoots.getDefaultStack());
 	}
 }
