@@ -41,7 +41,7 @@ public class ImprovedRailsMain implements ModInitializer, GameStartEntrypoint, R
 		p.setProperty("pylon_base_range", "8");
 		ConfigHandler c = new ConfigHandler(MOD_ID,p);
 
-		blockID = c.getInt("start_block_id");
+		blockID = c.getInt("start_block_ID");
 		itemID = c.getInt("start_item_ID");
 		baseMinecartSpeed = c.getInt("base_cart_speed");
 		furnaceMinecartBonus = c.getInt("furnace_bonus");
